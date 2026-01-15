@@ -1,3 +1,5 @@
+/* eslint-disable react-refresh/only-export-components */
+/* eslint-disable @typescript-eslint/no-empty-object-type */
 "use client";
 
 import type { IconButtonProps, SpanProps } from "@chakra-ui/react";
@@ -22,7 +24,7 @@ export function useColorMode() {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
   };
   return {
-    colorMode: colorMode as ColorMode,
+    colorMode: colorMode as "light" | "dark" | undefined,
     setColorMode: setTheme,
     toggleColorMode,
   };
