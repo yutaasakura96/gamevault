@@ -5,15 +5,15 @@ import GenreList from "@/components/GenreList";
 import { useState } from "react";
 import type { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
-import type { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
+import type { PlatformParent } from '@/entities/platform'
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
-  sortOrder: string;
-  searchText: string;
+  genre: Genre | null
+  platform: PlatformParent | null
+  sortOrder: string
+  searchText: string
 }
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
         />
       </GridItem>
       <GridItem area="main">
-        <Box paddingLeft={2}> 
+        <Box paddingLeft={2}>
           <GameHeading gameQuery={gameQuery} />
           <HStack gap={5} paddingBottom={5}>
             <PlatformSelector
