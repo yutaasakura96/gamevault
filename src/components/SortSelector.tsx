@@ -21,7 +21,7 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
     <Menu.Root>
       <Menu.Trigger asChild>
         <Button variant="subtle">
-          order by: {currentSortOrder?.label || "Relevance"}
+          Order By: {currentSortOrder?.label || "Relevance"}
           <BsChevronDown />
         </Button>
       </Menu.Trigger>
