@@ -1,7 +1,20 @@
 import apiClient from '@/services/api-client';
 import { type FetchResponse } from '@/services/api-client';
-import type { PlatformParent } from '@/entities/platform';
 import { useQuery } from '@tanstack/react-query';
+
+export interface PlatformChild {
+  id: number
+  name: string
+  slug: string
+}
+
+export interface PlatformParent {
+  id: number
+  name: string
+  slug: string
+  platforms: PlatformChild[]
+}
+
 
 const usePlatforms = () => {
   return useQuery({

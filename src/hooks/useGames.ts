@@ -2,22 +2,17 @@ import type { GameQuery } from '@/App'
 import { useQuery } from '@tanstack/react-query';
 import apiClient from '@/services/api-client';
 import type { FetchResponse } from '@/services/api-client';
-
-export interface GamePlatform {
-  id: number;
-  name: string;
-  slug: string;
-}
+import type { PlatformChild } from './usePlatforms';
 export interface Game {
   id: number;
   name: string;
   background_image: string;
-  parent_platforms: { platform: GamePlatform }[];
+  parent_platforms: { platform: PlatformChild }[];
   metacritic: number;
 }
 
 const useGames = (gameQuery: GameQuery) => {
-  const platformIds = gameQuery.platform?.platforms.map((p) => p.id).join(',');
+  const platformIds = gameQuery.platform?.platforms.map((p: PlatformChild) => p.id).join(',');
 
   return useQuery<FetchResponse<Game>, Error>({
     queryKey: ['games', gameQuery],

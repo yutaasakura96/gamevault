@@ -2,12 +2,12 @@ import { FaWindows, FaPlaystation, FaXbox, FaApple, FaLinux, FaAndroid } from "r
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
-import type { GamePlatform } from "@/hooks/useGames";
+import type { PlatformChild } from "@/hooks/usePlatforms";
 import { HStack, Icon } from "@chakra-ui/react";
 import type { IconType } from "react-icons";
 
 interface Props {
-  platforms: GamePlatform[];
+  platforms: PlatformChild[];
 }
 
 const PlatformIconList = ({ platforms }: Props) => {

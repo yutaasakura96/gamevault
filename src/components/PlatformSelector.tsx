@@ -1,4 +1,4 @@
-import type { PlatformParent } from '@/entities/platform';
+import type { PlatformParent } from '@/hooks/usePlatforms';
 import usePlatforms from '@/hooks/usePlatforms';
 import { Button, Menu, Portal } from '@chakra-ui/react';
 import { BsChevronDown } from 'react-icons/bs';
