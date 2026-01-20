@@ -17,6 +17,7 @@ const useGenres = () => {
     initialData: {
       count: genres.length,
       results: genres,
+      next: null,
     },
   });
 }

@@ -2,6 +2,7 @@ import axios, { type AxiosRequestConfig } from "axios";
 const apiKey = import.meta.env.VITE_RAWG_API_KEY
 export interface FetchResponse<T> {
   count: number;
+  next: string | null;
   results: T[];
 }
 const axiosInstance = axios.create({
