@@ -3,7 +3,6 @@ import useGenre from "@/hooks/useGenre";
 import usePlatform from "@/hooks/usePlatform";
 import { Heading } from "@chakra-ui/react";
 
-
 interface Props {
   gameQuery: GameQuery;
 }
