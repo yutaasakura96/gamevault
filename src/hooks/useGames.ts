@@ -1,8 +1,8 @@
-import type { GameQuery } from '@/App'
 import { useInfiniteQuery } from '@tanstack/react-query';
 import APIClient, { type FetchResponse } from '@/services/api-client';
 import type { Platform } from './usePlatforms';
 import ms from 'ms';
+import useGameQueryStore from '@/store';
 
 
 const apiClient = new APIClient<Game>('/games');
@@ -14,7 +14,8 @@ export interface Game {
   metacritic: number;
 }
 
-const useGames = (gameQuery: GameQuery) => {
+const useGames = () => {
+  const gameQuery = useGameQueryStore((state) => state.gameQuery);
   const parentPlatformIds = gameQuery.platformId ? gameQuery.platformId.toString() : undefined;
 
   return useInfiniteQuery<FetchResponse<Game>, Error>({
