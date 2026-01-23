@@ -3,6 +3,7 @@ import { Box, Card, HStack, Image } from "@chakra-ui/react";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "@/services/image-url";
+import { Link } from "react-router-dom";
 
 interface Props {
   game: Game;
@@ -10,7 +11,7 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <Card.Root>
-      <Box aspectRatio={3/2} overflow="hidden">
+      <Box aspectRatio={3 / 2} overflow="hidden">
         <Image
           src={getCroppedImageUrl(game.background_image)}
           alt={game.name}
@@ -25,7 +26,11 @@ const GameCard = ({ game }: Props) => {
           <PlatformIconList platforms={game.parent_platforms.map((p) => p.platform)} />
           <CriticScore score={game.metacritic} />
         </HStack>
-        <Card.Title fontSize={"xl"}>{game.name}</Card.Title>
+        <Card.Title fontSize={"xl"}>
+          <Link to={`/games/` + game.slug}>
+            {game.name}
+          </Link>
+        </Card.Title>
       </Card.Body>
     </Card.Root>
   );
